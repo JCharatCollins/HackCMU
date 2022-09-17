@@ -4,6 +4,8 @@ var propType = "default"
 var gridLocation = Vector2(0, 0)
 var grid
 
+var selected = false
+
 signal tile_clicked(location, tilePropType)
 
 func get_gridLocation():
@@ -36,3 +38,10 @@ func _on_Tile_input_event(viewport, event, shape_idx):
 	if (event is InputEventMouseButton) and (event.is_pressed() == false):
 		print("input event")
 		emit_signal("tile_clicked", gridLocation, propType)
+			
+func set_selected(var new):
+	selected = new
+	if selected:
+		self.modulate = Color.gray
+	else:
+		self.modulate = Color.white

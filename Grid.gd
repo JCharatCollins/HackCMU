@@ -43,7 +43,11 @@ func _on_Root_ready():
 
 func _tile_clicked(location, tilePropType):
 	var activeTile = get_tile_at(location.x, location.y)
-	if !(activeTile in activeTiles):
+	if activeTiles.size() > 0 and activeTile == activeTiles[-1]:
+		activeTiles.erase(activeTile)
+		activeTile.set_selected(false)
+	elif !(activeTile in activeTiles):
 		activeTiles.append(activeTile)
+		activeTile.set_selected(true)
 		emit_signal("active_tiles_update", activeTile)
 	print(activeTiles)
