@@ -14,6 +14,7 @@ func _ready():
 
 func delete_children():
 	for n in get_children():
+		remove_child(n)
 		n.queue_free()
 
 
@@ -22,15 +23,15 @@ func delete_children():
 #	pass
 func updateActiveTiles():
 	var x = 0
+	delete_children()
 	for activeTile in activeTiles:
 		var newTile = tile.instance()
 		newTile.init_tile(activeTile.get_propType(), x, 0, 0.3)
 		x += 1
 		add_child(newTile, true)
-	print_tree_pretty()
+	print(get_child_count())
 
 func _on_Grid_active_tiles_update(tiles):
-	delete_children()
 	activeTiles = tiles
 	print(activeTiles)
 	updateActiveTiles()
