@@ -41,7 +41,7 @@ func get_tile_at(var x, var y):
 			return tile
 
 func _on_Root_ready():
-	generate_grid(4)
+	generate_grid(Hiscore.difficulty)
 	print_tree_pretty()
 	pass # Replace with function body.
 
