@@ -25,6 +25,7 @@ func generate_grid(var size):
 			newTile.init_tile("varp", 50*(x)+25, 50*(y)+25, 0.3)
 			add_child(newTile, true)
 			tiles.append(newTile)
+			newTile.connect("tile_clicked", self, "_tile_clicked")
 	print(tiles)
 	
 func get_tile_at(var x, var y):
@@ -36,3 +37,9 @@ func _on_Root_ready():
 	generate_grid(4)
 	print_tree_pretty()
 	pass # Replace with function body.
+
+func _tile_clicked(location, tilePropType):
+	var activeTile = get_tile_at(location.x, location.y)
+	if !(activeTile in activeTiles):
+		activeTiles.append(activeTile)
+	print(activeTiles)
