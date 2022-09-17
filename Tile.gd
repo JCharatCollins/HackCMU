@@ -44,9 +44,9 @@ func _on_Tile_input_event(viewport, event, shape_idx):
 			
 func set_selected(var new):
 	selected = new
-	if lastSelected:
+	if new == "lastSelected":
 		modulate = Color.green
-	elif selected:
+	elif new == "selected":
 		modulate = Color.gray
 	else:
 		modulate = Color.white

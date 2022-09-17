@@ -46,8 +46,10 @@ func _tile_clicked(location, tilePropType):
 	
 	#tile to be removed
 	if activeTiles.size() > 0 and activeTile == activeTiles[-1]:
+		activeTile.set_selected("false")
 		activeTiles.erase(activeTile)
-		activeTile.set_selected(false)
+		if activeTiles.size() > 0:
+			activeTiles[-1].set_selected("lastSelected")
 	
 	elif !(activeTile in activeTiles):
 		if activeTiles.size() > 0:
@@ -60,6 +62,8 @@ func _tile_clicked(location, tilePropType):
 	print(activeTiles)
 
 func add_activeTile(activeTile):
+	if (activeTiles.size() > 0):
+		activeTiles[-1].set_selected("selected")
 	activeTiles.append(activeTile)
-	activeTile.set_selected(true)
+	activeTiles[-1].set_selected("lastSelected")
 	emit_signal("active_tiles_add", activeTile)
