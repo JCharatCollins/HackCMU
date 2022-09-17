@@ -3,6 +3,7 @@ extends Node2D
 var tile = preload("res://Tile.tscn")
 
 var tiles = []
+var activeTiles = []
 
 # Declare member variables here. Examples:
 # var a = 2

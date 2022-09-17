@@ -1,4 +1,4 @@
-extends AnimatedSprite
+extends Area2D
 
 var propType = "default"
 var gridLocation = Vector2(0, 0)
@@ -14,7 +14,7 @@ func init_tile(var type, var x, var y, var setScale):
 	gridLocation.x = x
 	gridLocation.y = y
 	set_scale(Vector2(setScale, setScale))
-	play(propType)
+	get_child(0).play(propType)
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
