@@ -178,4 +178,5 @@ func _on_LogicParser_activeTilesCorrect():
 	mackeyEmitter.emitting = true
 	mackeyEmitter.one_shot = true
 	add_child(mackeyEmitter, true)
+	$CoinSound.play(0)
 	pass # Replace with function body.

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/cyber.mp3-37cf0cc7c30aa30d6b27eaa3c6344384.mp3str"
+
+[deps]
+
+source_file="res://cyber.mp3"
+dest_files=[ "res://.import/cyber.mp3-37cf0cc7c30aa30d6b27eaa3c6344384.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

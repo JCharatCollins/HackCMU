@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/32. The Sea Has Returned.mp3-0e4f2b5d8502701b738968600fd89c88.mp3str"
+
+[deps]
+
+source_file="res://32. The Sea Has Returned.mp3"
+dest_files=[ "res://.import/32. The Sea Has Returned.mp3-0e4f2b5d8502701b738968600fd89c88.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
