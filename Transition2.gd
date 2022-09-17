@@ -22,6 +22,7 @@ func _on_PlayButton_pressed():
 
 
 func _on_Transition_animation_finished(anim_name):
+	print(anim_name)
 	if(anim_name == "Transition2"):
 		get_tree().change_scene("res://GameOver.tscn")
 	pass # Replace with function body.

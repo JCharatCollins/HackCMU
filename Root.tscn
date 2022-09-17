@@ -126,3 +126,4 @@ script = ExtResource( 16 )
 [connection signal="timeout" from="Clock" to="Grid" method="_on_Clock_timeout"]
 [connection signal="timeout" from="Clock" to="PlaneTransition/Transition" method="_on_Clock_timeout"]
 [connection signal="pressed" from="CheckButton" to="ActiveTiles" method="_on_CheckButton_pressed"]
+[connection signal="animation_finished" from="PlaneTransition/Transition" to="PlaneTransition/Transition" method="_on_Transition_animation_finished"]
