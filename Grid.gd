@@ -83,3 +83,9 @@ func _on_Clock_timeout():
 	isPaused = true
 	gameOver = true
 	pass # Replace with function body.
+
+func _on_LogicParser_activeTilesInvalid():
+	for activeTile in activeTiles:
+		activeTile.set_selected("false")
+	activeTiles = []
+	emit_signal("active_tiles_update", activeTiles)

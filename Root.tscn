@@ -119,6 +119,7 @@ script = ExtResource( 16 )
 [connection signal="ready" from="." to="Grid" method="_on_Root_ready"]
 [connection signal="ready" from="." to="PlaneTransition/Transition" method="_on_Game_ready"]
 [connection signal="active_tiles_update" from="Grid" to="ActiveTiles" method="_on_Grid_active_tiles_update"]
+[connection signal="checkButton_pressed" from="ActiveTiles" to="LogicParser" method="_on_ActiveTiles_checkButton_pressed"]
 [connection signal="pressed" from="PauseButton" to="Grid" method="_on_PauseButton_pressed"]
 [connection signal="pressed" from="PauseButton" to="PauseButton" method="_on_PauseButton_pressed"]
 [connection signal="pressed" from="PauseButton" to="Clock" method="_on_PauseButton_pressed"]
@@ -126,3 +127,4 @@ script = ExtResource( 16 )
 [connection signal="timeout" from="Clock" to="Grid" method="_on_Clock_timeout"]
 [connection signal="timeout" from="Clock" to="PlaneTransition/Transition" method="_on_Clock_timeout"]
 [connection signal="pressed" from="CheckButton" to="ActiveTiles" method="_on_CheckButton_pressed"]
+[connection signal="activeTilesInvalid" from="LogicParser" to="Grid" method="_on_LogicParser_activeTilesInvalid"]

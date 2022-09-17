@@ -76,8 +76,6 @@ func eval(parsed, varp, varq):
 
 		expr.parse(parsed.replace("varp", str(varp).to_lower()) \
 						.replace("varq", str(varq).to_lower()))
-		
-		print(expr.get_error_text())
 		return expr.execute()
 	
 	var earliest_close_idx = parsed.find(")")
@@ -121,7 +119,5 @@ func _on_ActiveTiles_checkButton_pressed(activeTiles):
 		emit_signal("activeTilesInvalid")
 		print("this is where mackey devours your soul")
 		return
-	
-	print(parse_to_sentence(parsed))
 	
 	print(truth_table(parse_to_sentence(parsed)))
