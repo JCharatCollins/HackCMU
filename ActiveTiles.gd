@@ -33,6 +33,5 @@ func updateActiveTiles():
 
 func _on_Grid_active_tiles_update(tiles):
 	activeTiles = tiles
-	print(activeTiles)
 	updateActiveTiles()
 	pass # Replace with function body.
