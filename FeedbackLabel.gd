@@ -6,6 +6,8 @@ func isIncorrect():
 	self.text = "Incorrect."
 func isCorrect():
 	self.text = "Correct!"
+func isDuplicate():
+	self.text = "Duplicate."
 func clearText():
 	self.text = ""
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -21,3 +23,6 @@ func _on_LogicParser_activeTilesIncorrect():
 
 func _on_LogicParser_activeTilesInvalid():
 	isInvalid()
+
+func _on_LogicParser_duplicateSoln():
+	isDuplicate()

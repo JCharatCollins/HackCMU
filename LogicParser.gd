@@ -147,6 +147,7 @@ func _on_ActiveTiles_checkButton_pressed(activeTiles):
 	
 	#do the true thing (give points)
 	emit_signal("activeTilesCorrect")
+	correct_sols.append(sol_path)
 
 
 func _on_Expression_expr_generated(activeTiles):
