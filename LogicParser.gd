@@ -4,13 +4,12 @@ var propVars = ["varp", "varq"]
 var logConnectives = ["or", "and", "implies"] #not is a logical connective, but we're allowed to do funny things with it
 var expr_truth_table
 
+var correct_sols = []
+
 signal activeTilesInvalid
 signal activeTilesIncorrect
 signal activeTilesCorrect
-	
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+signal duplicateSoln
 
 func parseActiveTiles(activeTiles):
 	var parsed = []
@@ -124,18 +123,30 @@ func _on_ActiveTiles_checkButton_pressed(activeTiles):
 	var truth_table = truth_table(parse_to_sentence(parsed))
 	
 	if len(truth_table) != len(expr_truth_table):
-		# do the false thing
+		#this should never happen (both will always be 4)
+		print("ERROR: LogicParser(124)")
 		return
 	for i in range(len(truth_table)):
 		if truth_table[i] != expr_truth_table[i]:
 			# do the false thing
-			print("incorrect you moron")
 			emit_signal("activeTilesIncorrect")
+			return
+	
+	var sol_path = []
+	for aTile in activeTiles:
+		sol_path.append(aTile.gridLocation)
+	
+	for sol in correct_sols:
+		if len(sol) != len(sol_path):
+			continue
+		for i in range(len(sol)):
+			if sol[i] != sol_path[i]: #Vector2 can be compared
+				continue
+			emit_signal("duplicateSoln")
 			return
 	
 	#do the true thing (give points)
 	emit_signal("activeTilesCorrect")
-	print("good job")
 
 
 func _on_Expression_expr_generated(activeTiles):

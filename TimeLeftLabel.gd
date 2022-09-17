@@ -20,5 +20,5 @@ func _on_Clock_time_left(time):
 	if (time != 0):
 		self.text = str(int(time))
 	else:
-		self.text = "Time's \n Up!"
+		self.text = "Time's Up!"
 	pass # Replace with function body.
