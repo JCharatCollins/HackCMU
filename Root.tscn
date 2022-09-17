@@ -24,6 +24,7 @@ position = Vector2( 516, 108 )
 texture = ExtResource( 3 )
 
 [node name="Grid" type="Node2D" parent="."]
+position = Vector2( 512, 300 )
 script = ExtResource( 4 )
 
 [connection signal="ready" from="." to="Grid" method="_on_Root_ready"]

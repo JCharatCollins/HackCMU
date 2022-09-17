@@ -23,6 +23,8 @@ func _on_Root_ready():
 	for x in range(4):
 		for y in range(4):
 			var newTile = tile.instance()
-			newTile.init_tile("default", 50*(x)+50, 50*(y)+50)
+			newTile.init_tile("varp", 50*(x)+50, 50*(y)+50, 0.3)
 			add_child(newTile, true)
+	
+	print_tree_pretty()
 	pass # Replace with function body.

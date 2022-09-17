@@ -3,10 +3,11 @@ extends AnimatedSprite
 var propType = "default"
 var gridLocation = Vector2(0, 0)
 
-func init_tile(var type, var x, var y):
+func init_tile(var type, var x, var y, var setScale):
 	propType = type
 	gridLocation.x = x
 	gridLocation.y = y
+	set_scale(Vector2(setScale, setScale))
 	play(propType)
 # Declare member variables here. Examples:
 # var a = 2
