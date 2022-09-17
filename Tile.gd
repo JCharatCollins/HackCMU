@@ -23,7 +23,7 @@ func init_tile(var type, var x, var y, var setScale):
 	worldLocation.x = (166*setScale) * x + 25
 	worldLocation.y = (166*setScale) * y + 25
 	set_scale(Vector2(setScale, setScale))
-	get_child(0).play(propType)
+	$TileSprite.play(propType)
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
