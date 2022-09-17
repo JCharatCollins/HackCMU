@@ -1,22 +1,26 @@
-extends Timer
+extends AnimationPlayer
 
 
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-signal time_left(time)
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	start(4)
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	emit_signal("time_left", get_time_left())
+#func _process(delta):
 #	pass
 
-func _on_PauseButton_pressed():
-	set_paused(!is_paused())
+
+func _on_PlayButton_pressed():
+	Hiscore.currentScore = 0
+	play("Transition")
+	pass # Replace with function body.
+
+func _on_Transition_animation_finished(anim_name):
+	get_tree().change_scene("res://Root.tscn")
 	pass # Replace with function body.

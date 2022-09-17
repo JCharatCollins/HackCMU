@@ -14,6 +14,10 @@ config/name="HackCMU PropLogic"
 run/main_scene="res://Intro.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Hiscore="*res://hiscore.gd"
+
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true

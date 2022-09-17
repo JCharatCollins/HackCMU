@@ -24,8 +24,3 @@ func _on_PlayButton_mouse_entered():
 func _on_PlayButton_mouse_exited():
 	self.modulate = Color.white
 	pass # Replace with function body.
-
-
-func _on_PlayButton_pressed():
-	get_tree().change_scene("res://Root.tscn")
-	pass # Replace with function body.

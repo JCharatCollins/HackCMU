@@ -3,6 +3,7 @@ extends Node2D
 var tile = preload("res://Tile.tscn")
 
 var isPaused = false
+var gameOver = false
 
 var tiles = []
 var activeTiles = []
@@ -74,5 +75,11 @@ func get_paused():
 	return isPaused
 
 func _on_PauseButton_pressed():
-	isPaused = !isPaused
+	if (!gameOver):
+		isPaused = !isPaused
+	pass # Replace with function body.
+
+func _on_Clock_timeout():
+	isPaused = true
+	gameOver = true
 	pass # Replace with function body.
