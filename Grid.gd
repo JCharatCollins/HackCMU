@@ -5,6 +5,8 @@ var tile = preload("res://Tile.tscn")
 var tiles = []
 var activeTiles = []
 
+signal active_tiles_add(new_tile)
+
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -18,6 +20,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
 func generate_grid(var size):
 	for x in range(size):
 		for y in range(size):
@@ -42,4 +45,5 @@ func _tile_clicked(location, tilePropType):
 	var activeTile = get_tile_at(location.x, location.y)
 	if !(activeTile in activeTiles):
 		activeTiles.append(activeTile)
+		emit_signal("active_tiles_update", activeTile)
 	print(activeTiles)

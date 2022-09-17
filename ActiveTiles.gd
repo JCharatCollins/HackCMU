@@ -1,7 +1,6 @@
 extends Node2D
 
-var tile = preload("res://Tile.tscn")
-
+var activeTiles = []
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -15,3 +14,8 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+
+func _on_Grid_active_tiles_add(new_tile):
+	activeTiles.append(new_tile)
+	pass # Replace with function body.
