@@ -1,11 +1,13 @@
 extends Node2D
 
+signal activeTilesInvalid
+var parsed
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
 func parseActiveTiles(activeTiles):
-	var parsed = []
+	parsed = []
 	for tile in activeTiles:
 		match tile.get_propType():
 			"varp":
@@ -19,14 +21,16 @@ func parseActiveTiles(activeTiles):
 			"lnot":
 				parsed.append("not")
 			"implies":
-				parsed.insert(-2, "not")
-				parsed.append("or")
+				if parsed.size() > 0:
+					parsed.insert(parsed.size()-1, "not")
+					parsed.append("or")
+				else: 
+					#if implies is the first thing in the statement, it won't be valid
+					# we could solve this by checking validity first
+					parsed.append("not")
+					parsed.append("or")
 			_: #default
 				pass #obviously should never happen
-	if not check_validity(parsed):
-		pass # do some shit to indicate it doesn't work
-	
-	truth_table(parsed)
 
 # Returns boolean representing if the given statement makes sense logically
 # RULES: (the following don't consider not as a connective)
@@ -60,6 +64,7 @@ func check_validity(parsedTiles):
 # ele 1 = value for p = false, q = true
 # ele 2 = value for p = true, q = false
 # ele 3 = value for p = true, q = true
+# warning-ignore:shadowed_variable
 func truth_table(parsed):
 	var table = []
 	var parsed_str = ""
@@ -85,3 +90,14 @@ func truth_table(parsed):
 	table.append(expr.execute())
 	
 	return table
+
+
+func _on_ActiveTiles_checkButton_pressed(activeTiles):
+	parseActiveTiles(activeTiles)
+	
+	if not check_validity(parsed):
+		emit_signal("activeTilesInvalid")
+		print("this is where mackey devours your soul")
+		return
+	
+	print(truth_table(parsed))

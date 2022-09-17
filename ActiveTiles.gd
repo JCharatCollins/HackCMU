@@ -7,6 +7,7 @@ var activeTiles = []
 # var a = 2
 # var b = "text"
 
+signal checkButton_pressed(activeTiles)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -34,4 +35,8 @@ func updateActiveTiles():
 func _on_Grid_active_tiles_update(tiles):
 	activeTiles = tiles
 	updateActiveTiles()
-	pass # Replace with function body.
+	pass
+
+
+func _on_CheckButton_pressed():
+	emit_signal("checkButton_pressed", activeTiles)

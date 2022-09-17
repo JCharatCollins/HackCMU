@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://background.png" type="Texture" id=1]
 [ext_resource path="res://dropshadow.shader" type="Shader" id=2]
@@ -8,11 +8,12 @@
 [ext_resource path="res://ActiveTiles.gd" type="Script" id=6]
 [ext_resource path="res://pausebutton.png" type="Texture" id=7]
 [ext_resource path="res://settingsbutton.png" type="Texture" id=8]
-[ext_resource path="res://Clock.gd" type="Script" id=9]
+[ext_resource path="res://LogicParser.gd" type="Script" id=9]
 [ext_resource path="res://PauseButton.gd" type="Script" id=10]
 [ext_resource path="res://TimeLeftLabel.gd" type="Script" id=11]
 [ext_resource path="res://TitleBob.gd" type="Script" id=12]
-[ext_resource path="res://clockfont.tres" type="DynamicFont" id=13]
+[ext_resource path="res://Clock.gd" type="Script" id=13]
+[ext_resource path="res://clockfont.tres" type="DynamicFont" id=14]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 2 )
@@ -82,19 +83,31 @@ expand_icon = true
 
 [node name="Clock" type="Timer" parent="."]
 one_shot = true
-script = ExtResource( 9 )
+script = ExtResource( 13 )
 
 [node name="TimeLeftLabel" type="Label" parent="."]
 margin_left = 755.0
 margin_top = 367.0
 margin_right = 816.0
 margin_bottom = 418.0
-custom_fonts/font = ExtResource( 13 )
+custom_fonts/font = ExtResource( 14 )
 text = "60"
 script = ExtResource( 11 )
 
+[node name="CheckButton" type="Button" parent="."]
+margin_left = 38.0
+margin_top = 361.0
+margin_right = 279.0
+margin_bottom = 510.0
+text = "check  work (john mackey laughs at you)"
+
+[node name="LogicParser" type="Node2D" parent="."]
+script = ExtResource( 9 )
+
 [connection signal="ready" from="." to="Grid" method="_on_Root_ready"]
 [connection signal="active_tiles_update" from="Grid" to="ActiveTiles" method="_on_Grid_active_tiles_update"]
+[connection signal="checkButton_pressed" from="ActiveTiles" to="LogicParser" method="_on_ActiveTiles_checkButton_pressed"]
 [connection signal="pressed" from="PauseButton" to="PauseButton" method="_on_PauseButton_pressed"]
 [connection signal="pressed" from="PauseButton" to="Clock" method="_on_PauseButton_pressed"]
 [connection signal="time_left" from="Clock" to="TimeLeftLabel" method="_on_Clock_time_left"]
+[connection signal="pressed" from="CheckButton" to="ActiveTiles" method="_on_CheckButton_pressed"]
