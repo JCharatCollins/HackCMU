@@ -137,6 +137,7 @@ func _on_ActiveTiles_checkButton_pressed(activeTiles):
 		sol_path.append(aTile.gridLocation)
 	
 	for sol in correct_sols:
+		
 		if len(sol) != len(sol_path):
 			continue
 		
@@ -145,9 +146,9 @@ func _on_ActiveTiles_checkButton_pressed(activeTiles):
 			if sol[i] != sol_path[i]: #Vector2 can be compared
 				hasDifference = true
 			
-			if !hasDifference:
-				emit_signal("duplicateSoln")
-				return
+		if !hasDifference:
+			emit_signal("duplicateSoln")
+			return
 	
 	#do the true thing (give points)
 	emit_signal("activeTilesCorrect")
