@@ -95,6 +95,7 @@ script = ExtResource( 11 )
 
 [connection signal="ready" from="." to="Grid" method="_on_Root_ready"]
 [connection signal="active_tiles_update" from="Grid" to="ActiveTiles" method="_on_Grid_active_tiles_update"]
+[connection signal="pressed" from="PauseButton" to="Grid" method="_on_PauseButton_pressed"]
 [connection signal="pressed" from="PauseButton" to="PauseButton" method="_on_PauseButton_pressed"]
 [connection signal="pressed" from="PauseButton" to="Clock" method="_on_PauseButton_pressed"]
 [connection signal="time_left" from="Clock" to="TimeLeftLabel" method="_on_Clock_time_left"]

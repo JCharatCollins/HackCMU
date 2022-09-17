@@ -18,8 +18,5 @@ func _process(delta):
 #	pass
 
 func _on_PauseButton_pressed():
-	if (is_paused()):
-		set_paused(false)
-	else:
-		set_paused(true)
+	set_paused(!is_paused())
 	pass # Replace with function body.
