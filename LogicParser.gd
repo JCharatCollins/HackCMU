@@ -163,4 +163,3 @@ func _on_Expression_expr_generated(activeTiles):
 		return
 	
 	expr_truth_table = truth_table(parse_to_sentence(parsed_expr))
-
