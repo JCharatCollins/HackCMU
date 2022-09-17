@@ -38,7 +38,7 @@ func _ready():
 #	pass
 
 func _on_Tile_input_event(viewport, event, shape_idx):
-	if (event is InputEventMouseButton) and (event.is_pressed() == false):
+	if (event is InputEventMouseButton) and (event.is_pressed() == false) and !get_parent().get_paused():
 		print("input event")
 		emit_signal("tile_clicked", gridLocation, propType)
 			

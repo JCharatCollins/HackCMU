@@ -2,6 +2,8 @@ extends Node2D
 
 var tile = preload("res://Tile.tscn")
 
+var isPaused = false
+
 var tiles = []
 var activeTiles = []
 
@@ -67,3 +69,10 @@ func add_activeTile(activeTile):
 	activeTiles.append(activeTile)
 	activeTiles[-1].set_selected("lastSelected")
 	emit_signal("active_tiles_update", activeTiles)
+
+func get_paused():
+	return isPaused
+
+func _on_PauseButton_pressed():
+	isPaused = !isPaused
+	pass # Replace with function body.
