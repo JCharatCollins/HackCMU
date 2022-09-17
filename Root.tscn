@@ -53,4 +53,4 @@ icon = ExtResource( 8 )
 expand_icon = true
 
 [connection signal="ready" from="." to="Grid" method="_on_Root_ready"]
-[connection signal="active_tiles_add" from="Grid" to="ActiveTiles" method="_on_Grid_active_tiles_add"]
+[connection signal="active_tiles_update" from="Grid" to="ActiveTiles" method="_on_Grid_active_tiles_update"]

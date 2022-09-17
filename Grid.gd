@@ -5,7 +5,7 @@ var tile = preload("res://Tile.tscn")
 var tiles = []
 var activeTiles = []
 
-signal active_tiles_add(new_tile)
+signal active_tiles_update(new_tiles)
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -29,7 +29,6 @@ func generate_grid(var size):
 			add_child(newTile, true)
 			tiles.append(newTile)
 			newTile.connect("tile_clicked", self, "_tile_clicked")
-	print(tiles)
 	
 func get_tile_at(var x, var y):
 	for tile in tiles:
@@ -50,6 +49,7 @@ func _tile_clicked(location, tilePropType):
 		activeTiles.erase(activeTile)
 		if activeTiles.size() > 0:
 			activeTiles[-1].set_selected("lastSelected")
+		emit_signal("active_tiles_update", activeTiles)
 	
 	elif !(activeTile in activeTiles):
 		if activeTiles.size() > 0:
@@ -58,12 +58,10 @@ func _tile_clicked(location, tilePropType):
 				add_activeTile(activeTile)
 		if activeTiles.size() == 0:
 			add_activeTile(activeTile)
-		
-	print(activeTiles)
 
 func add_activeTile(activeTile):
 	if (activeTiles.size() > 0):
 		activeTiles[-1].set_selected("selected")
 	activeTiles.append(activeTile)
 	activeTiles[-1].set_selected("lastSelected")
-	emit_signal("active_tiles_add", activeTile)
+	emit_signal("active_tiles_update", activeTiles)
