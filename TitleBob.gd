@@ -1,13 +1,14 @@
-extends Node2D
+extends AnimationPlayer
 
-var tile = preload("res://Tile.tscn")
 
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	play("TitleBob")
 	pass # Replace with function body.
 
 

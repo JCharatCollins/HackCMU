@@ -15,7 +15,7 @@ shader = ExtResource( 2 )
 shader_param/radius = 2.0
 shader_param/modulate = Color( 0, 0, 0, 1 )
 
-[node name="Root" type="Node2D"]
+[node name="Game" type="Node2D"]
 script = ExtResource( 5 )
 
 [node name="Background" type="Sprite" parent="."]
@@ -40,6 +40,7 @@ margin_left = 936.0
 margin_top = 97.0
 margin_right = 1011.0
 margin_bottom = 172.0
+action_mode = 0
 icon = ExtResource( 7 )
 flat = true
 icon_align = 1
