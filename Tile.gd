@@ -21,12 +21,20 @@ func init_tile(var type, var x, var y, var setScale):
 	gridLocation.x = x
 	gridLocation.y = y
 	worldLocation.x = (166*setScale) * x + 25
-	worldLocation.y = (166*setScale) * y + 25
+	worldLocation.y = (166*setScale) * y + 50
 	set_scale(Vector2(setScale, setScale))
 	$TileSprite.play(propType)
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
+
+func init_tile_worldPos(var type, var worldX, var worldY, var setScale):
+	propType = type
+	worldLocation.x = worldX
+	worldLocation.y = worldY
+	gridLocation = Vector2(-1, -1)
+	set_scale(Vector2(setScale, setScale))
+	$TileSprite.play(propType)
 
 
 # Called when the node enters the scene tree for the first time.

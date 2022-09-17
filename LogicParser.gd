@@ -2,16 +2,16 @@ extends Node2D
 
 var propVars = ["varp", "varq"]
 var logConnectives = ["or", "and", "implies"] #not is a logical connective, but we're allowed to do funny things with it
+var expr_truth_table
 
 signal activeTilesInvalid
-var parsed
 	
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
 func parseActiveTiles(activeTiles):
-	parsed = []
+	var parsed = []
 	for tile in activeTiles:
 		match tile.get_propType():
 			"varp":
@@ -27,7 +27,8 @@ func parseActiveTiles(activeTiles):
 			"implies":
 				parsed.append("implies")
 			_: #default
-				pass #obviously should never happen	
+				pass #obviously should never happen
+	return parsed
 	
 # Returns boolean representing if the given statement makes sense logically
 # RULES: (the following don't consider not as a connective)
@@ -91,8 +92,6 @@ func eval(parsed, varp, varq):
 	var newstr = parsed.substr(0, latest_open_idx) + str(expr.execute()).to_lower() + parsed.substr(earliest_close_idx + 1)
 	
 	return eval(newstr, varp, varq)
-	
-	
 
 # Returns a list of 4 elements:
 # ele 0 = value for p = false, q = false
@@ -113,11 +112,34 @@ func truth_table(sentence):
 
 func _on_ActiveTiles_checkButton_pressed(activeTiles):
 	
-	parseActiveTiles(activeTiles)
+	var parsed = parseActiveTiles(activeTiles)
 	
 	if not check_validity(parsed):
 		emit_signal("activeTilesInvalid")
 		print("this is where mackey devours your soul")
 		return
 	
-	print(truth_table(parse_to_sentence(parsed)))
+	var truth_table = truth_table(parse_to_sentence(parsed))
+	
+	if len(truth_table) != len(expr_truth_table):
+		# do the false thing
+		return
+	for i in range(len(truth_table)):
+		if truth_table[i] != expr_truth_table[i]:
+			# do the false thing
+			print("you wrong idiot")
+			return
+	
+	#do the true thing (give points)
+	print("wow you can get a C")
+
+
+func _on_Expression_expr_generated(activeTiles):
+	var parsed_expr = parseActiveTiles(activeTiles)
+	
+	if not check_validity(parsed_expr):
+		print("this should never happen since this is hard-coded")
+		return
+	
+	expr_truth_table = truth_table(parse_to_sentence(parsed_expr))
+
