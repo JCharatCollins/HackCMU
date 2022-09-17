@@ -10,7 +10,6 @@ var new_hiscore_list
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print(ProjectSettings.globalize_path("user://highscores.save"))
 	if (hiscores.file_exists("user://highscores.save")):
 		hiscores.open("user://highscores.save", hiscores.READ)
 		if (hiscores.get_len() > 0):
