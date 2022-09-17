@@ -9,17 +9,7 @@
 [ext_resource path="res://plane.png" type="Texture" id=7]
 [ext_resource path="res://clockfont.tres" type="DynamicFont" id=8]
 [ext_resource path="res://scoreboardfont.tres" type="DynamicFont" id=9]
-
-[sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 0.6, 0.6, 0.6, 0 )
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_color = Color( 1, 1, 1, 1 )
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-shadow_color = Color( 1, 1, 1, 0.278431 )
-shadow_size = 1
+[ext_resource path="res://scoreboardbox.tres" type="StyleBox" id=10]
 
 [sub_resource type="Animation" id=2]
 resource_name = "Transition"
@@ -56,7 +46,12 @@ custom_colors/guide_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_selected = Color( 1, 1, 1, 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = ExtResource( 9 )
-custom_styles/bg = SubResource( 1 )
+custom_styles/cursor = ExtResource( 10 )
+custom_styles/selected_focus = ExtResource( 10 )
+custom_styles/bg_focus = ExtResource( 10 )
+custom_styles/cursor_unfocused = ExtResource( 10 )
+custom_styles/selected = ExtResource( 10 )
+custom_styles/bg = ExtResource( 10 )
 script = ExtResource( 4 )
 
 [node name="EnterName" type="LineEdit" parent="."]

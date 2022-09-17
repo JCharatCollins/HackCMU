@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://background.png" type="Texture" id=1]
 [ext_resource path="res://Title.tscn" type="PackedScene" id=2]
@@ -20,6 +20,14 @@
 [ext_resource path="res://ScoreLabel.gd" type="Script" id=18]
 [ext_resource path="res://DifficultyButton.gd" type="Script" id=19]
 [ext_resource path="res://smw_1-up.wav" type="AudioStream" id=20]
+[ext_resource path="res://scoreboardbox.tres" type="StyleBox" id=21]
+[ext_resource path="res://scoreboardfont.tres" type="DynamicFont" id=22]
+
+[sub_resource type="Theme" id=5]
+default_font = ExtResource( 22 )
+PopupMenu/colors/font_color = Color( 1, 1, 1, 1 )
+PopupMenu/styles/hover = ExtResource( 21 )
+PopupMenu/styles/panel = ExtResource( 21 )
 
 [sub_resource type="Animation" id=3]
 resource_name = "Transition"
@@ -72,9 +80,9 @@ script = ExtResource( 6 )
 
 [node name="PauseButton" type="Button" parent="."]
 margin_left = 936.0
-margin_top = 97.0
+margin_top = 17.0
 margin_right = 1011.0
-margin_bottom = 172.0
+margin_bottom = 92.0
 action_mode = 0
 icon = ExtResource( 7 )
 flat = true
@@ -84,10 +92,19 @@ script = ExtResource( 10 )
 
 [node name="DifficultyButton" type="MenuButton" parent="."]
 margin_left = 936.0
-margin_top = 14.0
+margin_top = 97.0
 margin_right = 1011.0
-margin_bottom = 89.0
+margin_bottom = 172.0
+grow_horizontal = 0
+theme = SubResource( 5 )
+custom_fonts/font = ExtResource( 14 )
+custom_styles/hover = ExtResource( 21 )
+custom_styles/pressed = ExtResource( 21 )
+custom_styles/focus = ExtResource( 21 )
+custom_styles/disabled = ExtResource( 21 )
+custom_styles/normal = ExtResource( 21 )
 icon = ExtResource( 8 )
+icon_align = 1
 expand_icon = true
 items = [ "Easy", null, 0, false, false, 0, 0, null, "", false, "Medium", null, 0, false, false, 1, 0, null, "", false ]
 script = ExtResource( 19 )
