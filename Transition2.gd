@@ -22,17 +22,16 @@ func _on_PlayButton_pressed():
 
 
 func _on_Transition_animation_finished(anim_name):
-	print(anim_name)
 	if(anim_name == "Transition2"):
 		get_tree().change_scene("res://GameOver.tscn")
 	pass # Replace with function body.
-	
-func _on_Game_ready():
-	play("Transition")
-	pass # Replace with function body.
-
 
 func _on_Clock_timeout():
 	yield(get_tree().create_timer(3), "timeout")
 	play("Transition2")
+	pass # Replace with function body.
+
+
+func _on_PlaneTransition_ready():
+	play("Transition")
 	pass # Replace with function body.

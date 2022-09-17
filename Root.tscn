@@ -113,7 +113,7 @@ expand_icon = true
 script = ExtResource( 9 )
 
 [node name="PlaneTransition" type="Sprite" parent="."]
-position = Vector2( 1624, 300 )
+position = Vector2( 600, 300 )
 z_index = 1
 texture = ExtResource( 15 )
 
@@ -142,7 +142,6 @@ custom_fonts/font = ExtResource( 14 )
 script = ExtResource( 12 )
 
 [connection signal="ready" from="." to="Grid" method="_on_Root_ready"]
-[connection signal="ready" from="." to="PlaneTransition/Transition" method="_on_Game_ready"]
 [connection signal="ready" from="." to="Expression" method="_on_Root_ready"]
 [connection signal="active_tiles_update" from="Grid" to="ActiveTiles" method="_on_Grid_active_tiles_update"]
 [connection signal="checkButton_pressed" from="ActiveTiles" to="LogicParser" method="_on_ActiveTiles_checkButton_pressed"]
@@ -159,5 +158,6 @@ script = ExtResource( 12 )
 [connection signal="activeTilesInvalid" from="LogicParser" to="Grid" method="_on_LogicParser_activeTilesInvalid"]
 [connection signal="activeTilesInvalid" from="LogicParser" to="FeedbackLabel" method="_on_LogicParser_activeTilesInvalid"]
 [connection signal="duplicateSoln" from="LogicParser" to="FeedbackLabel" method="_on_LogicParser_duplicateSoln"]
+[connection signal="ready" from="PlaneTransition" to="PlaneTransition/Transition" method="_on_PlaneTransition_ready"]
 [connection signal="animation_finished" from="PlaneTransition/Transition" to="PlaneTransition/Transition" method="_on_Transition_animation_finished"]
 [connection signal="expr_generated" from="Expression" to="LogicParser" method="_on_Expression_expr_generated"]
