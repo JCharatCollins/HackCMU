@@ -163,3 +163,19 @@ func _on_Expression_expr_generated(activeTiles):
 		return
 	
 	expr_truth_table = truth_table(parse_to_sentence(parsed_expr))
+
+
+func _on_LogicParser_activeTilesCorrect():
+	var mackeyEmitter = CPUParticles2D.new()
+	mackeyEmitter.texture = load("res://mackey.jpg")
+	mackeyEmitter.scale_amount = 0.09
+	mackeyEmitter.explosiveness = 1
+	mackeyEmitter.lifetime = 5
+	mackeyEmitter.angular_velocity = 20
+	mackeyEmitter.angular_velocity_random = 0.5
+	mackeyEmitter.initial_velocity = 200
+	mackeyEmitter.direction = Vector2(0, -1)
+	mackeyEmitter.emitting = true
+	mackeyEmitter.one_shot = true
+	add_child(mackeyEmitter, true)
+	pass # Replace with function body.

@@ -114,6 +114,7 @@ flat = true
 expand_icon = true
 
 [node name="LogicParser" type="Node2D" parent="."]
+position = Vector2( 163, 429 )
 script = ExtResource( 9 )
 
 [node name="PlaneTransition" type="Sprite" parent="."]
@@ -159,6 +160,7 @@ script = ExtResource( 12 )
 [connection signal="timeout" from="Clock" to="PlaneTransition/Transition" method="_on_Clock_timeout"]
 [connection signal="pressed" from="CheckButton" to="ActiveTiles" method="_on_CheckButton_pressed"]
 [connection signal="activeTilesCorrect" from="LogicParser" to="Grid" method="_on_LogicParser_activeTilesCorrect"]
+[connection signal="activeTilesCorrect" from="LogicParser" to="LogicParser" method="_on_LogicParser_activeTilesCorrect"]
 [connection signal="activeTilesCorrect" from="LogicParser" to="ScoreLabel" method="_on_LogicParser_activeTilesCorrect"]
 [connection signal="activeTilesCorrect" from="LogicParser" to="FeedbackLabel" method="_on_LogicParser_activeTilesCorrect"]
 [connection signal="activeTilesIncorrect" from="LogicParser" to="FeedbackLabel" method="_on_LogicParser_activeTilesIncorrect"]
