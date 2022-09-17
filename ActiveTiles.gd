@@ -25,7 +25,7 @@ func updateActiveTiles():
 	for activeTile in activeTiles:
 		var newTile = tile.instance()
 		newTile.init_tile(activeTile.get_propType(), x, 0, 0.3)
-		x += 50
+		x += 1
 		add_child(newTile, true)
 	print_tree_pretty()
 
