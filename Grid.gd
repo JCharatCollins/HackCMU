@@ -85,7 +85,14 @@ func _on_Clock_timeout():
 	pass # Replace with function body.
 
 func _on_LogicParser_activeTilesInvalid():
+	clearActiveTiles()
+
+func clearActiveTiles():
 	for activeTile in activeTiles:
 		activeTile.set_selected("false")
 	activeTiles = []
 	emit_signal("active_tiles_update", activeTiles)
+
+
+func _on_LogicParser_activeTilesCorrect():
+	clearActiveTiles()

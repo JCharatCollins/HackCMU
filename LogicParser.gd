@@ -5,6 +5,8 @@ var logConnectives = ["or", "and", "implies"] #not is a logical connective, but 
 var expr_truth_table
 
 signal activeTilesInvalid
+signal activeTilesIncorrect
+signal activeTilesCorrect
 	
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -127,11 +129,13 @@ func _on_ActiveTiles_checkButton_pressed(activeTiles):
 	for i in range(len(truth_table)):
 		if truth_table[i] != expr_truth_table[i]:
 			# do the false thing
-			print("you wrong idiot")
+			print("incorrect you moron")
+			emit_signal("activeTilesIncorrect")
 			return
 	
 	#do the true thing (give points)
-	print("wow you can get a C")
+	emit_signal("activeTilesCorrect")
+	print("good job")
 
 
 func _on_Expression_expr_generated(activeTiles):

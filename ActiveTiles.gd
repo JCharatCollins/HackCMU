@@ -30,7 +30,7 @@ func updateActiveTiles():
 		newTile.init_tile(activeTile.get_propType(), x, 0, 0.3)
 		x += 1
 		add_child(newTile, true)
-	print(get_child_count())
+	#print(get_child_count())
 
 func _on_Grid_active_tiles_update(tiles):
 	activeTiles = tiles
