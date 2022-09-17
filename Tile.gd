@@ -6,6 +6,9 @@ var gridLocation = Vector2(0, 0)
 func get_gridLocation():
 	return gridLocation
 
+func get_propType():
+	return propType
+
 func init_tile(var type, var x, var y, var setScale):
 	propType = type
 	gridLocation.x = x
