@@ -20,8 +20,8 @@ func init_tile(var type, var x, var y, var setScale):
 	propType = type
 	gridLocation.x = x
 	gridLocation.y = y
-	worldLocation.x = 50 * x + 25
-	worldLocation.y = 50 * y + 25
+	worldLocation.x = (166*setScale) * x + 25
+	worldLocation.y = (166*setScale) * y + 25
 	set_scale(Vector2(setScale, setScale))
 	get_child(0).play(propType)
 # Declare member variables here. Examples:

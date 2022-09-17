@@ -27,7 +27,7 @@ func generate_grid(var size):
 	for x in range(size):
 		for y in range(size):
 			var newTile = tile.instance()
-			newTile.init_tile(propTypes[randi() % propTypes.size()], x, y, 0.3)
+			newTile.init_tile(propTypes[randi() % propTypes.size()], x, y, 0.4)
 			add_child(newTile, true)
 			tiles.append(newTile)
 			newTile.connect("tile_clicked", self, "_tile_clicked")
