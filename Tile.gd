@@ -6,6 +6,7 @@ var worldLocation = Vector2(0, 0)
 var grid
 
 var selected = false
+var lastSelected = false
 
 signal tile_clicked(location, tilePropType)
 
@@ -32,7 +33,6 @@ func init_tile(var type, var x, var y, var setScale):
 func _ready():
 	set_position(worldLocation)
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
@@ -44,7 +44,9 @@ func _on_Tile_input_event(viewport, event, shape_idx):
 			
 func set_selected(var new):
 	selected = new
-	if selected:
-		self.modulate = Color.gray
+	if lastSelected:
+		modulate = Color.green
+	elif selected:
+		modulate = Color.gray
 	else:
-		self.modulate = Color.white
+		modulate = Color.white
