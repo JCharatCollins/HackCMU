@@ -21,7 +21,9 @@ func _on_PauseButton_pressed():
 	if isPaused:
 		isPaused = false
 		self.icon = load("res://pausebutton.png")
+		Music.play(Music.get_playback_position())
 	else:
 		isPaused = true
 		self.icon = load("res://unpausebutton.png")
+		Music.stop()
 	pass # Replace with function body.

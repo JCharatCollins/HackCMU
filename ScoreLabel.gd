@@ -5,7 +5,7 @@ var score = 0
 # var a = 2
 # var b = "text"
 func parse_score(score):
-	return "Score :" + str(score)
+	return "Score: " + str(score)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
