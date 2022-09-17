@@ -3,6 +3,9 @@ extends AnimatedSprite
 var propType = "default"
 var gridLocation = Vector2(0, 0)
 
+func get_gridLocation():
+	return gridLocation
+
 func init_tile(var type, var x, var y, var setScale):
 	propType = type
 	gridLocation.x = x

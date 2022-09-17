@@ -17,14 +17,21 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
-
+func generate_grid(var size):
+	for x in range(size):
+		for y in range(size):
+			var newTile = tile.instance()
+			newTile.init_tile("varp", 50*(x)+25, 50*(y)+25, 0.3)
+			add_child(newTile, true)
+			tiles.append(newTile)
+	print(tiles)
+	
+func get_tile_at(var x, var y):
+	for tile in tiles:
+		if tile.get_gridLocation() == Vector2(x, y):
+			return tile
 
 func _on_Root_ready():
-	for x in range(4):
-		for y in range(4):
-			var newTile = tile.instance()
-			newTile.init_tile("varp", 50*(x)+50, 50*(y)+50, 0.3)
-			add_child(newTile, true)
-	
+	generate_grid(4)
 	print_tree_pretty()
 	pass # Replace with function body.
