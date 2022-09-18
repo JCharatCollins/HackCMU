@@ -22,7 +22,11 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
-
+class SortDescending:
+	static func score_check(a, b):
+		if a[1] > b[1]:
+			return true
+		return false
 
 func _on_EnterName_text_entered(new_text):
 	hiscores.open("user://highscores.save", hiscores.WRITE)
@@ -30,6 +34,7 @@ func _on_EnterName_text_entered(new_text):
 	hiscores.store_var(hiscore_list)
 	hiscores.close()
 	clear()
+	hiscore_list.sort_custom(SortDescending, "score_check")
 	for score in hiscore_list:
 		add_item(score[0] + ": " + str(score[1]))
 	pass # Replace with function body.
