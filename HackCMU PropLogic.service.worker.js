@@ -3,7 +3,7 @@
 // that they need an Internet connection to run the project if desired.
 // Incrementing CACHE_VERSION will kick off the install event and force
 // previously cached resources to be updated from the network.
-const CACHE_VERSION = "1663449884|38356897";
+const CACHE_VERSION = "1663452798|2952352269";
 const CACHE_PREFIX = "HackCMU PropLogi-sw-cache-";
 const CACHE_NAME = CACHE_PREFIX + CACHE_VERSION;
 const OFFLINE_URL = "HackCMU PropLogic.offline.html";
