@@ -9,4 +9,4 @@ The main highlight of this project is the recursive parsing algorithm, which was
 
 Other highlights include the wonderful music (The Sea Has Returned) from ZeroRanger, one of my (Joshua's) favorite games, and the inclusion of the great and powerful John Mackey's visage.
 
-An itch.io page running an HTML5 build is available at [Propositional Logic](https://jcharatcollins.itch.io/propositional-logic), but currently has some problems loading--we're working with support to get them fixed.
+An itch.io page running an HTML5 build is available at [Propositional Logic](https://jcharatcollins.itch.io/propositional-logic).
